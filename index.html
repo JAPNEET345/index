@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE ROSA</title>
+    <!--Font awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/app.css">
+    <!--Scroll reveal CDN-->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+    /*global styling*/
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    .root{
+    --main-font:"Source Sans Pro", sans-sarif;
+    --secondary-font:'Hurr  Von  Muellerhoff', cursive;
+    --body-font: 'Cabin',sans-sarif;
+    --main-font-color: black;
+    --secondary-font-color: yellow;
+    --body-font-color: hotpink;
+    }
+
+body{
+    background-color: grey;
+}
+
+html{
+        font-family: var(--body-font);
+        font-size: 10px;
+        color: var(--body-font-color);
+        scroll-behavior: smooth;
+    }
+
+    .section{
+        padding: 3.9rem 0;
+    }
+
+
+    a{
+        text-decoration: none;
+    }
+    p{
+        font-size: 1.9rem;
+    }
+
+    .container{
+        width: 100%;
+        max-width: 122.5rem;
+        margin: 0 auto;
+        padding: 0 2.4rem;
+    }
+
+    /*hEADER*/
+    header{
+        width: 100%;
+        position:absolute;
+        top:0;
+        left:0;
+        z-index:1;
+        background-image:linear-gradient(to bottom,rgba(0,0,0,0.5),transparent);
+    }
+
+    .nav{
+        height: 7rem;
+        font-size: 23px;
+        display: flex;
+        align-items:center;
+        justify-content:center;
+        
+    }
+
+
+    nav ul {
+        float: left;
+        margin-right: 20px;
+
+    }
+
+    nav ul li{
+             display:inline-block;
+             line-height: 70px;
+             margin: 0 20px;
+    }
+  
+
+  nav ul li a{
+      color: hotpink;
+      font-size: 2.2rem;
+      padding: 7px 13px;
+      text-transform: uppercase;
+      border-radius: 3px;
+      font-weight: 600;
+      font-style: italic;
+  }
+  nav ul li a::after{
+      text-decoration: underline;
+      color: hotpink;
+  }
+
+  nav ul li a:hover{
+      color: yellow;
+
+  }
+        
+
+    .menu-toggle{
+        color:white;
+        font-size: 2.2rem;
+        position:absolute;
+        top: 50%;
+        transform:translateY(-50%);
+        left: 2.5rem;
+        cursor:pointer;
+        z-index: 1500;
+    }
+
+    .menu-toggle:hover{
+        color: yellow;
+        font-size: 2.7rem;
+    }
+
+
+    
+
+    .fa-times{
+        display: none;
+    }
+    
+    .nav::before{
+        content:"";
+        position:fixed;
+        top:0;
+        left:0;
+        width: 100vw;
+        height: 100vh;
+        background-color:rgba(0,0,0,0.1);
+        z-index:1000;
+        opacity: 0;
+        transform: scale(0);
+        transition: transform .2s;
+    }
+
+    .open  .fa-times{
+        display: block;
+    }
+
+    
+     
+     .open .nav-list{
+         transform:translateX(0);
+     }
+
+     .open .nav::before{
+         opacity:1;
+         transform:scale(1);
+     }
+
+     .nav-item{
+         border-bottom: 2px solid rgba(255,255,255,.3);
+     }
+
+     /*Hero*/
+     .hero{
+         width: 100%;
+         height: 80vh;
+         background:url("assets/tomataoes.jpeg") center no-repeat;
+         background-size:cover;
+         display: flex;
+         align-items:center;
+         text-align: center;
+     }
+
+     .sub-headline{
+         font-size: 3.5rem;
+         font-family: var(--secondary-font);
+         color: var(--secondary-font-color);
+         font-weight: 100;
+         line-height: .4;
+         letter-spacing: 2px;
+
+
+     }
+
+     .first-letter{
+         text-transform: uppercase;
+         font-size: 4rem;
+         color: yellow;
+         font-weight: 900;
+     }
+
+     .first-letter:hover{
+         color:gold;
+     }
+
+     .headline{
+         color: fuchsia;
+         font-size: 3.7rem;
+         font-family: var(--main-font);
+         text-transform: uppercase;
+         font-weight: 900;
+         letter-spacing: .5rem;
+         margin-right: -.5rem;
+     }
+
+     .headline:hover{
+         color:honeydew;
+     }
+
+
+    
+
+
+
+
+/*Discover Our Story*/
+#second-section{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.card{
+    width: 40%;
+    height: 200px;
+    background-color: yellow;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px white;
+   overflow: hidden;
+    transition: box-shadow 0.2s;
+    margin-bottom: 10px; 
+}
+
+.card:hover{
+    box-shadow: 1px 1px 10px black;
+    cursor: pointer;
+}
+
+.card-bottom{
+    position: absolute;
+    background-color: white;
+    height: 50px;
+    width: 10%;
+    margin-top: 150px;
+}
+
+/*Discover our Menu*/
+
+#popular-locations{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+h2{
+    font-size: 40px;
+    color:yellow;
+    font-style: italic;
+    box-shadow: silver;
+
+}
+
+.card-1{
+    background-color: fuchsia;
+    height: 50px;
+    width: 40%;
+    display: flexbox;
+    box-shadow: 1px 1px 10px yellow;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+    margin-bottom: 10px; 
+}
+
+.card-1:hover{
+    box-shadow: 1px 1px 10px darkorange;
+    cursor: pointer;
+}
+
+.locations-div{
+    width: 100%;
+    height: 60px;
+    background-color:white;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.locations-div:hover{
+    box-shadow: 1px 1px 5px hotpink;
+}
+  
+#get-zomato-app{
+    margin-top:50px;
+    margin-bottom: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: yellow;
+}
+
+
+
+     /*Footer*/
+     .footer-content{
+        padding: 8rem 1;
+         background-color: black;
+         color: whitesmoke;
+         text-align:center;
+         position:absolute;
+     }
+     .back-to-top{
+         width: 7rem;
+         height: 7rem;
+         background-color: crimson;
+         position: absolute;
+         top: -3rem;
+         left: 50%;
+         transform: translateX(-50%);
+         border-radius: 50%;
+     }
+
+     .back-to-top i{
+         display: block;
+         color:aliceblue;
+         font-size: 2rem;
+         padding: 2rem;
+     }
+
+    h2{
+        color: yellow;
+        font-weight: 300;
+        font-size: 20px;
+    }
+
+    h2:hover{
+color:lawngreen;
+    }
+
+    h4{
+        color: greenyellow;
+        font-weight: 300;
+        font-size: 20px;
+    }
+
+    h4:hover{
+        color:indianred;
+    }
+
+    .socials i{
+        size: 7rem;
+        color: springgreen;
+        opacity: .5;
+        transition: color .3s;
+    }
+
+    .contact{
+        size: 2.3rem;
+        color: yellow;
+    }
+
+.footer-bottom{
+    color: hotpink;
+    font-size: 2rem;
+}
+
+.search-icon{
+    height: 40px;
+         width: 180px;
+         display: flex;
+         background: grey;
+         border-radius: 5px;
+         align-content:center;
+         justify-content: center;
+
+}
+
+.search-icon input{
+    height: 100%;
+         width: 150px;
+         outline:none;
+         padding: 0 10px;
+         color: black;
+         border-radius: 5px 0 0 5px;
+}
+.button{
+    display: inline-flexbox;
+    background:chartreuse;
+    color: black;
+    font-size: 2.1rem;
+    border-radius: 3px;
+    font-weight: 400;
+    font-style: italic;
+    right: 5.5rem;
+    transition: background 0.3s;
+}
+
+.button:hover{
+    background:crimson;
+}
+
+.center{
+         position:absolute;
+         left: 50%;
+         transform: translate(-50%,-50%);
+         margin-top: 200px;
+         width:400px;
+         background: springgreen;
+         border-radius: 10px;
+     }
+
+     .search-icon{
+    height: 40px;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    background: coral;
+    border-radius: 5px;
+    margin-bottom: 1.2rem;
+    margin-right: -9px;
+}
+.search-icon:hover{
+    background: gold;
+  
+}
+
+
+.search-icon .search-box{
+    width: -90%;
+}
+.search-icon input{
+    height: 100%;
+    width: 200px;
+    border:none;
+    outline:none;
+    padding: 0 10px;
+    color:darkblue;
+    font-size: 20px;
+    border-radius: 5px 0 0 5px;
+}
+
+ .search-icon .icon{
+    height: 100%;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid gold;
+    border-radius: 0 5px 5px 0;
+}
+
+.col-md-6 p{
+    font-weight:900;
+    font-style: italic;
+    color: black;
+    font-size: 2.8rem;
+
+}
+
+
+
+
+
+.row img{
+    box-shadow: 1px 10px 10px chartreuse;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+    margin-bottom: 10px; 
+}
+
+.row img:hover{
+    box-shadow: 1px 1px 10px black;
+    cursor:pointer;
+}
+
+.row .d-flex .button{
+    display: inline-block;
+    background: yellow;
+    font-size: 2rem;
+    size: 2.3rem;
+    color: black;
+
+}
+@media only screen and(max-width:768px){
+    .locations-div{
+        margin-bottom: 10px;
+    }
+}
+
+
+
+
+
+
+
+     
+</style>
+
+          <header>
+              <div class="container">
+                  <nav class="nav">
+                      <div class="menu-toggle">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                      </div>
+                      <div class="button">
+                        <button class="button">SIGN UP</button>
+                        <button class="button">LOGIN</button>
+                    </div>
+                        <ul>
+                            <li><a href="#">HOME</a></li>
+                            <li> <a href="#">ABOUT</a></li>
+                            <li><a href="#">SERVICES</a></li>
+                            <li><a href="#">CONTACTS</a></li>
+                            <li><a href="#">FEEDBACK</a></li>
+                        </ul>
+                  </nav>
+              </div>
+          </header>
+
+                    
+            </div>
+        </nav>
+    </div>
+</header>
+<!---header ends-->
+
+<section class="hero" id="hero">
+    <div class="container">
+        <h2 class="sub-headline">
+            <span class="first-letter">WELCOME TO FOOHUB</span>
+        </h2>
+        <br>
+        <h1 class="headline">ZOMATO</h1>
+        <div class="headline-description">
+            <div class="separtor">
+                
+            </div>
+            <br>
+            <div  class="search-icon">
+                <input type="search" placeholder="Search" class="search-box">
+                <span class="fa fa-search"></span>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--HERO ENDS-->
+<section class="second-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="/assets/chowmain.jpeg" width="300" height="200">
+                    <div class="card-bottom">
+                    <p class="h4 m-0 mt-2 text-center">ORDER ONLINE</p>
+                    </div>
+                    </div>
+            </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <img src="/assets/apple.jpeg" width="300" height="200"><p>
+                            <div class="card-bottom">
+                                <p class="h4 m-0 mt-2 text-center">ORDER ONLINE</p>
+                            </div>
+                        </div>
+                    </div>
+                <div class="col-md-3">
+                    
+                    <div class="card">
+                        <img src="/assets/green  salad.jpeg"  width="300" height="200">
+                        
+                        <div class="card-bottom">
+                            <p class="h4 m-0 mt-2 text-center">ORDER ONLINE</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="/assets/foods.jpeg"  width="300" height="200">
+                        <div class="card-bottom">
+                            <p class="h4 m-0 mt-2 text-center">ORDER ONLINE</p>
+            </div>
+        </div>
+    </div>
+        </div>
+    </section>
+           
+
+    <br>
+    <br>
+    <br>
+    <br>
+<!--Discover our story ends here too-->
+<section class="popular-location">
+    <div class="container">
+        <div class="row-1">
+            <div class="col-md-4">
+            <h2>Popular Locations in Delhi</h2>
+            <div class="card-1">
+                            <p class="m-0 ml-3 h5">SAKET</p>
+                            <i class="fa fa-arrow-right ml -auto mr-4"></i>
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-md-4">
+                        <div class="card-1">
+                            <p class="m-0 ml-3 h5">LODHI COLONY</p>
+                            <i class="fa fa-arrow-right ml -auto mr-4"></i>
+                </div>
+                    </div>
+                </div>
+                    <div class="col-md-4">
+                        <div class="card-1">
+                            <p class="m-0 ml-3 h5">RAJIV CHOWK</p>
+                            <i class="fa fa-arrow-right ml -auto mr-4"></i>
+                        </div>
+                    </div>
+                </div>   
+                            <div class="col-md-4">
+                                <div class="card-1">
+                                    <p class="m-0 ml-3 h5">KAROL BAGH</p>
+                                    <i class="fa fa-arrow-right ml -auto mr-4"></i>
+                                </div>
+                            </div>
+        </div>
+                            <div class="col-md-4">
+                                <div class="card-1">
+                                    
+                                    <p class="m-0 ml-3 h5">CP</p>
+                                    <i class="fa fa-arrow-right ml -auto mr-4"></i>
+                        </div>
+                            </div>
+                        </div>
+                            <div class="col-md-4">
+                                <div class="card-1">
+                                    
+                                    <p class="m-0 ml-3 h5">PITAMPURA</p>
+                                    <i class="fa fa-arrow-right ml -auto mr-4"></i>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+</section>
+
+<br>
+<br>
+<br>
+<br>
+
+                    <!--Discover our story ends too-->
+                    <section class="get-zomato-app">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 d-none d-md-flex">
+                                    <img src="/assets/zomato.png" class="ml-auto">
+                                </div>
+                                <br>
+                                <br>
+                                <div class="col-md-6">
+                                    <p class="display-4 font-weight-bold mt-4">GET THE ZOMATO APP</p>
+                                    <br>
+                                    <p>We will send you a link ,open it on your phone to download the app</p>
+                                    <br>
+                                    <br>
+                                    <div class="d-flex">
+                                        <input type="text" placeholder="Email" class="email-input"/>
+                                        <button class="btn btn-danger ml-2">GET APP</button>
+                                    </div>
+                                    <br>
+                                    <p class="mt-3 text-muted">Download app from</p>
+                                    <br>
+                                    <div class="d-flex">
+                                        <img src="/assets/zomato guy.png" width="300" height="250">
+                                    </div>
+                                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br>
+<br>
+<br>
+
